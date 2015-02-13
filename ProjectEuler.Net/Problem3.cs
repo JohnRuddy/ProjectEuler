@@ -12,39 +12,22 @@ namespace ProjectEuler.Net
 {
     class Problem3 : IProjectEulerProblem
     {
-        static bool IsPrime(double number)
-        {
-
-            if (number == 1) return false;
-            if (number == 2) return true;
-
-            for (int i = 2; i <= Math.Ceiling(Math.Sqrt(number)); ++i)
-            {
-                if (number % i == 0) return false;
-            }
-
-            return true;
-
-        }
-
         public void Execute()
         {
-            double number = 600851475143;
-            List<double> primes = new List<double>();
-
-            for (double i = 1; i < number; i++)
+            long number = 600851475143L;
+            int factor = 3;
+            while (number > 1)
             {
-                if (IsPrime(i))
+                if (number % factor == 0)
                 {
-                    if (number % i == 0)
-                    {
-                        primes.Add(i);            
-                    }
+                    number /= factor;
+                }
+                else
+                {
+                    factor += 2;
                 }
             }
-
-            Console.WriteLine(primes.Max());
-            Console.ReadKey();
+            Console.WriteLine(factor);
         }
     }
 }
