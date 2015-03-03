@@ -8,7 +8,10 @@ namespace ProjectEuler.Net
 {
     class Problem7 : IProjectEulerProblem
     {
-        bool isPrime(Int64 n)
+        public Problem7()
+        { }
+
+        public bool isPrime(Int64 n)
         { 
             //# look for factors of 2 first
             // if n % 2 == 0: return False
